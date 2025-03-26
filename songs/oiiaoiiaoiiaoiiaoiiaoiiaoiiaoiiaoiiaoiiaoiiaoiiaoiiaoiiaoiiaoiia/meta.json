@@ -1,0 +1,14 @@
+{
+	"opponentModeAllowed": false,
+	"icon": "face",
+	"difficulties": [
+		"OIIAOIIA"
+	],
+	"coopAllowed": false,
+	"name": "oiiaoiiaoiiaoiiaoiiaoiiaoiiaoiiaoiiaoiiaoiiaoiiaoiiaoiiaoiiaoiia",
+	"stepsPerBeat": 4,
+	"displayName": "oiiaoiiaoiiaoiiaoiiaoiiaoiiaoiiaoiiaoiiaoiiaoiiaoiiaoiiaoiiaoiia",
+	"needsVoices": true,
+	"beatsPerMeasure": 4,
+	"bpm": 100
+}

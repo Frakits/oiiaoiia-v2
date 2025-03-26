@@ -1,0 +1,9 @@
+<!DOCTYPE codename-engine-character>
+<character y="200" sprite="fattyboi_94" camy="25" icon="fattyboi_94">
+	<anim name="idle" anim="idle0" x="40" y="51" fps="24" loop="false"/>
+	<anim name="idle alt" anim="frame_" x="0" y="0" fps="60" loop="true"/>
+	<anim name="singDOWN" anim="down" x="-102" y="-27" fps="24" loop="false"/>
+	<anim name="singLEFT" anim="left" x="47" y="-3.5" fps="24" loop="false"/>
+	<anim name="singRIGHT" anim="right" x="-84.5" y="-2.5" fps="24" loop="false"/>
+	<anim name="singUP" anim="up" x="-117" y="93" fps="24" loop="false"/>
+</character>
