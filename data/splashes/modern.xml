@@ -1,4 +1,4 @@
-<splashes sprite="splashes/modern" alpha="1" antialiasing="true" scale="3.5">
+<splashes sprite="splashes/modern" alpha="1" antialiasing="true" scale="1.2">
 <strum id="0">
 <!-- LEFT -->
 <anim name="splashleft1" anim="frame" fps="24" x="-3"/>

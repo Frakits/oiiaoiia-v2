@@ -92,6 +92,7 @@ function update(elapsed) {
 }
 
 function onNoteHit(e) {
+    e.note.splash = "modern";
     if (e.rating == "bad") {
         scripts.call("onPlayerMiss");
     }
