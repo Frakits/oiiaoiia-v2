@@ -79,6 +79,15 @@ function postCreate() {
     moderncamera.addShader(anamorphiceffect);
     anamorphiceffect.intensity = 100;
     anamorphiceffect.brightness = 0.06;
+
+    for (i in strumLines.members[0].members) {
+        i.scale.x += 0.2;
+        i.scale.y += 0.2;
+    }
+    for (i in strumLines.members[0].notes) {
+        i.scale.x += 0.2;
+        i.scale.y += 0.2;
+    }
 }
 
 function update(elapsed) {
@@ -174,4 +183,12 @@ function startHUDSequence() {
 
 function onStartSong() {
     startHUDSequence();
+}
+
+function onStrumCreation(strumEvent) {
+    strumEvent.strum.scale.set(1.4, 1.4);
+	strumEvent.sprite = "hud/noteskin";
+}
+function onNoteCreation(e) {
+	e.noteSprite = "hud/noteskin";
 }
