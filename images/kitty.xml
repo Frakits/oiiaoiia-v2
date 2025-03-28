@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.0.4 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="kitty.png" width="2636" height="3660">
+	<SubTexture name="spinner0000" x="7" y="7" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0003" x="519" y="7" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0006" x="7" y="301" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0009" x="301" y="519" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0012" x="813" y="7" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0015" x="813" y="519" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0018" x="7" y="813" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0021" x="301" y="813" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0024" x="595" y="1031" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0027" x="7" y="1325" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0030" x="519" y="1325" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0033" x="1031" y="1325" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0036" x="1107" y="7" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0039" x="1107" y="301" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0042" x="1107" y="595" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0045" x="1107" y="889" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0048" x="1543" y="1183" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0051" x="1619" y="7" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0054" x="1619" y="301" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0057" x="1619" y="595" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0060" x="1619" y="889" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0063" x="7" y="1619" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0066" x="301" y="1619" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0069" x="595" y="1619" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0072" x="889" y="1619" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0075" x="1183" y="1619" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0078" x="1477" y="1695" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0081" x="1837" y="1183" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0084" x="2131" y="7" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0087" x="2131" y="301" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0090" x="2131" y="595" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0093" x="2131" y="889" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0096" x="1477" y="1989" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0099" x="7" y="2131" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0102" x="301" y="2131" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0105" x="595" y="2131" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0108" x="889" y="2131" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0111" x="1183" y="2131" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0114" x="1477" y="2283" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0117" x="1477" y="2577" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0120" x="7" y="2643" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0123" x="301" y="2643" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0126" x="595" y="2643" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0129" x="889" y="2643" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0132" x="1183" y="2643" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0135" x="1477" y="2871" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0138" x="7" y="3155" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0141" x="301" y="3155" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0144" x="595" y="3155" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0147" x="889" y="3155" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0150" x="1183" y="3155" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0153" x="1477" y="3165" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0001" x="7" y="7" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0002" x="7" y="7" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0004" x="519" y="7" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0005" x="519" y="7" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0007" x="7" y="301" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0008" x="7" y="301" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0010" x="301" y="519" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0011" x="301" y="519" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0013" x="813" y="7" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0014" x="813" y="7" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0016" x="813" y="519" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0017" x="813" y="519" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0019" x="7" y="813" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0020" x="7" y="813" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0022" x="301" y="813" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0023" x="301" y="813" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0025" x="595" y="1031" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0026" x="595" y="1031" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0028" x="7" y="1325" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0029" x="7" y="1325" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0031" x="519" y="1325" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0032" x="519" y="1325" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0034" x="1031" y="1325" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0035" x="1031" y="1325" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0037" x="1107" y="7" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0038" x="1107" y="7" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0040" x="1107" y="301" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0041" x="1107" y="301" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0043" x="1107" y="595" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0044" x="1107" y="595" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0046" x="1107" y="889" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0047" x="1107" y="889" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0049" x="1543" y="1183" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0050" x="1543" y="1183" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0052" x="1619" y="7" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0053" x="1619" y="7" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0055" x="1619" y="301" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0056" x="1619" y="301" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0058" x="1619" y="595" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0059" x="1619" y="595" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0061" x="1619" y="889" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0062" x="1619" y="889" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0064" x="7" y="1619" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0065" x="7" y="1619" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0067" x="301" y="1619" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0068" x="301" y="1619" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0070" x="595" y="1619" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0071" x="595" y="1619" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0073" x="889" y="1619" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0074" x="889" y="1619" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0076" x="1183" y="1619" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0077" x="1183" y="1619" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0079" x="1477" y="1695" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0080" x="1477" y="1695" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0082" x="1837" y="1183" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0083" x="1837" y="1183" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0085" x="2131" y="7" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0086" x="2131" y="7" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0088" x="2131" y="301" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0089" x="2131" y="301" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0091" x="2131" y="595" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0092" x="2131" y="595" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0094" x="2131" y="889" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0095" x="2131" y="889" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0097" x="1477" y="1989" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0098" x="1477" y="1989" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0100" x="7" y="2131" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0101" x="7" y="2131" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0103" x="301" y="2131" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0104" x="301" y="2131" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0106" x="595" y="2131" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0107" x="595" y="2131" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0109" x="889" y="2131" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0110" x="889" y="2131" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0112" x="1183" y="2131" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0113" x="1183" y="2131" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0115" x="1477" y="2283" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0116" x="1477" y="2283" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0118" x="1477" y="2577" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0119" x="1477" y="2577" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0121" x="7" y="2643" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0122" x="7" y="2643" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0124" x="301" y="2643" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0125" x="301" y="2643" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0127" x="595" y="2643" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0128" x="595" y="2643" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0130" x="889" y="2643" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0131" x="889" y="2643" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0133" x="1183" y="2643" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0134" x="1183" y="2643" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0136" x="1477" y="2871" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0137" x="1477" y="2871" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0139" x="7" y="3155" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0140" x="7" y="3155" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0142" x="301" y="3155" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0143" x="301" y="3155" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0145" x="595" y="3155" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0146" x="595" y="3155" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0148" x="889" y="3155" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0149" x="889" y="3155" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0151" x="1183" y="3155" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0152" x="1183" y="3155" width="280" height="498" rotated="true" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0154" x="1477" y="3165" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+	<SubTexture name="spinner0155" x="1477" y="3165" width="498" height="280" frameX="-0" frameY="-0" frameWidth="498" frameHeight="280"/>
+</TextureAtlas>

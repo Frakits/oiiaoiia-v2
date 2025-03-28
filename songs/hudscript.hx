@@ -124,7 +124,7 @@ function onNoteHit(e) {
     if (e.rating == "bad") {
         scripts.call("onPlayerMiss");
     }
-    if (e.rating == "sick") internalscore += 5;
+    if (e.rating == "sick") internalscore += 1;
     else return;
 
     if (internalscore == 125) {
@@ -221,8 +221,9 @@ function startNotesSequence() {
 }
 
 function befallThyPootyHUD() {
-    FlxTween.tween(camHUD, {y: -20}, 1, {ease: FlxEase.sineOut}).then(FlxTween.tween(camHUD, {y: 1000, angle: 20, alpha: 0}, 8, {ease: FlxEase.sineInOut}));
+    FlxTween.tween(camHUD, {y: -20}, 1, {ease: FlxEase.sineOut}).then(FlxTween.tween(camHUD, {y: 2000, angle: 20, alpha: 0}, 8, {ease: FlxEase.sineInOut}));
     internalscore = 0;
+    scripts.call("onPlayerMiss");
 }
 
 function onStrumCreation(strumEvent) {
