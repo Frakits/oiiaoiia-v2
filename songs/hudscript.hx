@@ -52,6 +52,7 @@ function postCreate() {
     scorefire.camera = moderncamera;
     scorefire.blend = BlendMode.ADD;
     scorefire.alpha = 0;
+    scorefire.visible = false;
     scorefire.shader = new CustomShader("colorswap");
     scorefire.shader.uTime = 1;
     scorefire.shader.gaytime = false;
@@ -77,16 +78,21 @@ function postCreate() {
     add(healthbarlabel);
 
     moderncamera.addShader(anamorphiceffect);
-    anamorphiceffect.intensity = 100;
+    anamorphiceffect.intensity = 50;
     anamorphiceffect.brightness = 0.06;
 
     for (i in strumLines.members[0].members) {
+        i.x += 50;
+        i.camera = moderncamera;
         i.scale.x += 0.2;
         i.scale.y += 0.2;
+        i.alpha = 0;
     }
-    for (i in strumLines.members[0].notes) {
+    for (i in strumLines.members[0].notes.members) {
+        i.camera = moderncamera;
         i.scale.x += 0.2;
         i.scale.y += 0.2;
+        i.alpha = 0;
     }
 }
 
@@ -97,11 +103,10 @@ function update(elapsed) {
     healthbar.clipRect.width = lerp(healthbar.clipRect.width, FlxMath.lerp(0, healthbar.width, health/2), 0.2);
     healthbar.clipRect = healthbar.clipRect;
 
-    scorefire.shader.money = Conductor.songPosition / 500;
+    scorefire.shader.money = Conductor.curBeatFloat;
 }
 
 function onNoteHit(e) {
-    e.note.splash = "modern";
     if (e.rating == "bad") {
         scripts.call("onPlayerMiss");
     }
@@ -113,7 +118,7 @@ function onNoteHit(e) {
         FlxTween.tween(scorefire, {alpha: 0.7}, 0.05, {ease: FlxEase.sineOut});
         FlxTween.tween(scorefire.colorTransform, {blueOffset: 20, redOffset: 20, greenOffset: 20}, 0.4, {ease: FlxEase.backOut});
         FlxTween.tween(scorefire.scale, {y: 1}, 0.4, {ease: FlxEase.elasticOut});
-        anamorphiceffecttween = FlxTween.num(300, 100, 1, {ease: FlxEase.sineOut}, function(v){
+        anamorphiceffecttween = FlxTween.num(200, 50, 1, {ease: FlxEase.sineOut}, function(v){
             anamorphiceffect.intensity = v;
         });
     }
@@ -124,7 +129,7 @@ function onNoteHit(e) {
         scorefiretween = FlxTween.num(0.6, 0.4, 0.2, {}, function(v) {
             scorefire.shader.uTime = v;
         });
-        anamorphiceffecttween = FlxTween.num(400, 100, 1, {ease: FlxEase.sineOut}, function(v){
+        anamorphiceffecttween = FlxTween.num(300, 50, 1, {ease: FlxEase.sineOut}, function(v){
             anamorphiceffect.intensity = v;
         });
     }
@@ -135,7 +140,7 @@ function onNoteHit(e) {
         scorefiretween = FlxTween.num(1, 0.1, 0.2, {}, function(v) {
             scorefire.shader.uTime = v;
         });
-        anamorphiceffecttween = FlxTween.num(600, 100, 1, {ease: FlxEase.sineOut}, function(v){
+        anamorphiceffecttween = FlxTween.num(500, 100, 1, {ease: FlxEase.sineOut}, function(v){
             anamorphiceffect.intensity = v;
         });
     }
@@ -147,7 +152,7 @@ function onNoteHit(e) {
         scorefire.colorTransform.blueOffset = scorefire.colorTransform.redOffset = scorefire.colorTransform.greenOffset = 255;
         FlxTween.tween(scorefire.colorTransform, {blueOffset: 20, redOffset: 20, greenOffset: 20}, 0.9, {ease: FlxEase.backOut});
         scorefire.shader.gaytime = true;
-        anamorphiceffecttween = FlxTween.num(1200, 300, 1, {ease: FlxEase.sineOut}, function(v){
+        anamorphiceffecttween = FlxTween.num(720, 120, 1, {ease: FlxEase.sineOut}, function(v){
             anamorphiceffect.intensity = v;
             anamorphiceffect.brightness = FlxMath.lerp(0.06, 0.2, (v - 100) / 1100);
         });
@@ -163,11 +168,13 @@ function onPlayerMiss() {
     FlxTween.tween(scorefire.scale, {y: 0.6}, 0.4, {ease: FlxEase.elasticOut});
     scorefire.shader.uTime = 1;
     scorefire.shader.gaytime = false;
-    anamorphiceffect.intensity = 100;
+    anamorphiceffect.intensity = 50;
     anamorphiceffect.brightness = 0.06;
 }
 
 function startHUDSequence() {
+    scorefire.visible = true;
+
     var totalOfHuds = [for (i in hudes) i];
     totalOfHuds.push(healthbarlabel);
     totalOfHuds.push(scorebar);
@@ -175,20 +182,45 @@ function startHUDSequence() {
     totalOfHuds.push(scorebarlabel);
     FlxG.random.shuffle(totalOfHuds);
     var curTweeny = FlxTween.tween(totalOfHuds[0], {alpha: 1}, 0.001, {ease: FlxEase.sineInOut});
-    for (jay in 0...4)
+    var stupidVAlue = 4;
+    for (jay in 0...stupidVAlue) {
+        var booidelay:Int = 0;
         for (it=>i in totalOfHuds) {
-            curTweeny = curTweeny.then(FlxTween.tween(i, {alpha: 0}, 0.001 + (jay * 0.005), {ease: FlxEase.sineInOut})).then(FlxTween.tween(i, {alpha: 1}, 0.01, {ease: FlxEase.sineInOut}));
+            curTweeny = curTweeny.then(FlxTween.tween(i, {alpha: 0}, 0.01, {ease: FlxEase.sineInOut, startDelay: (stupidVAlue-jay) / 100}))
+            .then(FlxTween.tween(i, {alpha: 1}, 0.01, {ease: FlxEase.sineInOut, startDelay: (stupidVAlue-jay) / 300}));
         }
+    }
 }
 
-function onStartSong() {
-    startHUDSequence();
+function startNotesSequence() {
+    var totalOfHuds = [for (i in strumLines.members[0].members) i];
+    var curTweeny = FlxTween.tween(totalOfHuds[0], {alpha: 1}, 0.001, {ease: FlxEase.sineInOut});
+    var stupidVAlue = 4;
+    for (jay in 0...stupidVAlue) {
+        var booidelay:Int = 0;
+        for (it=>i in totalOfHuds) {
+            curTweeny = curTweeny.then(FlxTween.tween(i, {alpha: 0}, 0.01, {ease: FlxEase.sineInOut, startDelay: (stupidVAlue-jay) / 100}))
+            .then(FlxTween.tween(i, {alpha: 1}, 0.01, {ease: FlxEase.sineInOut, startDelay: (stupidVAlue-jay) / 300}));
+        }
+    }
+    for (i in strumLines.members[0].notes.members) i.alpha = 1;
+}
+
+function befallThyPootyHUD() {
+    FlxTween.tween(camHUD, {y: -20}, 1, {ease: FlxEase.sineOut}).then(FlxTween.tween(camHUD, {y: 1000, angle: 20, alpha: 0}, 8, {ease: FlxEase.sineInOut}));
+    internalscore = 0;
 }
 
 function onStrumCreation(strumEvent) {
-    strumEvent.strum.scale.set(1.4, 1.4);
-	strumEvent.sprite = "hud/noteskin";
+    if (strumEvent.player == 0) {
+        strumEvent.__doAnimation = false;
+        strumEvent.strum.scale.set(1.4, 1.4);
+	    strumEvent.sprite = "hud/noteskin";
+    }
 }
 function onNoteCreation(e) {
-	e.noteSprite = "hud/noteskin";
+    if (e.strumLineID == 0) {
+        e.note.splash = "modern";
+        e.noteSprite = "hud/noteskin";
+    }   
 }
