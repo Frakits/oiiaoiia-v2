@@ -1,7 +1,7 @@
 import openfl.display.BlendMode;
 import flixel.math.FlxRect;
 
-var moderncamera = new FlxCamera();
+var moderncamera = new HudCamera();
 
 var internalscore:Int = 0;
 
@@ -26,16 +26,19 @@ var anamorphiceffecttween:FlxTween = null;
 function postCreate() {
     FlxG.cameras.add(moderncamera, false);
     moderncamera.bgColor = 0;
+    moderncamera.downscroll = camHUD.downscroll;
 
     for (i in hudes) {
         i.camera = moderncamera;
         i.alpha = 0;
+        i.flipY = downscroll;
         add(i);
     }
 
     scorebar.camera = moderncamera;
     scorebar.clipRect = FlxRect.get(0, 0, 0, scorebar.height);
     scorebar.alpha = 0;
+    scorebar.flipY = downscroll;
     add(scorebar);
 
     scorebarlabel.camera = moderncamera;
@@ -70,6 +73,7 @@ function postCreate() {
     healthbar.camera = moderncamera;
     healthbar.clipRect = FlxRect.get(0, 0, 0, healthbar.height);
     healthbar.alpha = 0;
+    healthbar.flipY = downscroll;
     add(healthbar);
 
     healthbarlabel.camera = moderncamera;
@@ -94,6 +98,16 @@ function postCreate() {
         i.scale.y += 0.2;
         i.alpha = 0;
     }
+
+    if (downscroll) {
+        healthbarlabel.y += 40;
+        healthbarlabel.x += 10;
+        scorebarlabel.y += 43;
+        scorebarlabel.x -= 10;
+
+        scorefire.y += 36;
+        scorefire.x += 5;
+    }
 }
 
 function update(elapsed) {
@@ -110,7 +124,7 @@ function onNoteHit(e) {
     if (e.rating == "bad") {
         scripts.call("onPlayerMiss");
     }
-    if (e.rating == "sick") internalscore += 1;
+    if (e.rating == "sick") internalscore += 5;
     else return;
 
     if (internalscore == 125) {
