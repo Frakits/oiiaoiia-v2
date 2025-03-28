@@ -1,3 +1,4 @@
+import hxvlc.flixel.FlxVideoSprite;
 var oiiaoiia = false;
 var anamorphiceffect = new CustomShader("anamorphic effects");
 anamorphiceffect.intensity = 10;
@@ -17,6 +18,42 @@ theLegitBG.alpha = 0;
 theLegitBG.zoomFactor = 0;
 theLegitBG.scrollFactor.set();
 
+var beautifulCamera = new FlxCamera();
+beautifulCamera.bgColor = 0;
+var beautifulBG = new FlxVideoSprite();
+beautifulBG.bitmap.onFormatSetup.add(function()
+{
+	if (beautifulBG.bitmap != null && beautifulBG.bitmap.bitmapData != null)
+	{
+		beautifulBG.screenCenter();
+		beautifulBG.camera = beautifulCamera;
+	}
+});
+beautifulBG.alpha = 0;
+beautifulBG.load(Paths.video("youtube_IuAeVYSk5Bc_1920x1080_h264 (online-video-cutter.com) (remux)"),['input-repeat=65535']);
+var beautifulText = new FlxText(0, 0, 0, "Beautiful Moment", 74);
+beautifulText.font = Paths.font("amsterdam.ttf");
+beautifulText.camera = beautifulCamera;
+beautifulText.alpha = 0;
+var beautifulKanji = new FlxText(0, 0, 0, "死の前の九十四のシーン", 32);
+beautifulKanji.font = Paths.font("kanji.ttf");
+beautifulKanji.camera = beautifulCamera;
+beautifulKanji.alpha = 0;
+
+function create() {
+	FlxG.cameras.remove(camGame, false);
+	FlxG.cameras.remove(camHUD, false);
+	FlxG.cameras.add(beautifulCamera, false);
+	FlxG.cameras.add(camGame);
+	FlxG.cameras.add(camHUD, false);
+	add(beautifulBG);
+	beautifulText.screenCenter();
+	beautifulText.y -= 25;
+	add(beautifulText);
+	beautifulKanji.screenCenter();
+	beautifulKanji.y += 200;
+	add(beautifulKanji);
+}
 
 function postCreate() {
 	insert(0, theLegitBG);
@@ -98,7 +135,24 @@ function beatHit() {
 
 		case 18:
 			FlxTween.tween(discoCat, {alpha: 0}, 0.2);
+			
+		case 148:
+			dad.alpha = 0;
+			FlxG.camera.alpha = 0;
+
+		case 154:
+			FlxTween.tween(beautifulBG, {alpha: 1}, (Conductor.crochet/1000) * 8, {ease: FlxEase.sineOut});
+			beautifulBG.play();
+
+		case 160:
+			FlxTween.tween(beautifulText, {alpha: 1}, (Conductor.crochet/1000) * 8, {ease: FlxEase.sineOut});
+			FlxTween.tween(beautifulKanji, {alpha: 1}, (Conductor.crochet/1000) * 8, {ease: FlxEase.sineOut});
 	}
+}
+
+function destroy() {
+	beautifulBG.pause();
+	beautifulBG.destroy();
 }
 
 function stepHit() {

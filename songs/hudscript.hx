@@ -24,6 +24,8 @@ var anamorphiceffect = new CustomShader("anamorphic effects");
 var anamorphiceffecttween:FlxTween = null;
 
 function postCreate() {
+    for (i in [healthBar, healthBarBG, iconP1, iconP2]) i.visible = false;
+
     FlxG.cameras.add(moderncamera, false);
     moderncamera.bgColor = 0;
     moderncamera.downscroll = camHUD.downscroll;
