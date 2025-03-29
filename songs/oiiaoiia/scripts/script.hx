@@ -130,23 +130,37 @@ function beatHit() {
 			FlxTween.cancelTweensOf(FlxG.camera);
 			defaultCamZoom = 1;
 
-		case 16:
+		case 16,168:
 			FlxTween.tween(discoCat, {alpha: 0.3}, 0.2);
 
-		case 18:
+		case 18,170:
 			FlxTween.tween(discoCat, {alpha: 0}, 0.2);
 			
+		case 69:
+			startHUDSequence();
+			
 		case 148:
-			dad.alpha = 0;
 			FlxG.camera.alpha = 0;
+			FlxG.camera.scroll.y += 100;
+			befallTheCurrentHUD();
 
 		case 154:
 			FlxTween.tween(beautifulBG, {alpha: 1}, (Conductor.crochet/1000) * 8, {ease: FlxEase.sineOut});
 			beautifulBG.play();
+			FlxTween.tween(FlxG.camera.scroll, {y: FlxG.camera.scroll.y - 100}, (Conductor.crochet/1000) * 30);
 
 		case 160:
+			FlxTween.tween(FlxG.camera, {alpha: 0.8}, (Conductor.crochet/1000) * 16);
+			FlxTween.tween(FlxG.camera, {zoom: 0.6}, (Conductor.crochet/1000) * 24);
 			FlxTween.tween(beautifulText, {alpha: 1}, (Conductor.crochet/1000) * 8, {ease: FlxEase.sineOut});
 			FlxTween.tween(beautifulKanji, {alpha: 1}, (Conductor.crochet/1000) * 8, {ease: FlxEase.sineOut});
+
+		case 184:
+			startHUDSequence();
+			FlxTween.tween(beautifulBG, {alpha: 0}, (Conductor.crochet/1000) * 4, {ease: FlxEase.sineOut});
+			FlxTween.tween(beautifulText, {alpha: 0}, (Conductor.crochet/1000) * 4, {ease: FlxEase.sineOut});
+			FlxTween.tween(beautifulKanji, {alpha: 0}, (Conductor.crochet/1000) * 4, {ease: FlxEase.sineOut});
+			FlxG.camera.alpha = 1;
 	}
 }
 

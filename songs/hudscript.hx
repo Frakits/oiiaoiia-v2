@@ -123,6 +123,7 @@ function update(elapsed) {
 }
 
 function onNoteHit(e) {
+    if (e.note.splash == "modern") e.showRating = false;
     if (e.rating == "bad") {
         scripts.call("onPlayerMiss");
     }
@@ -188,7 +189,7 @@ function onPlayerMiss() {
     anamorphiceffect.brightness = 0.06;
 }
 
-function startHUDSequence() {
+public function startHUDSequence() {
     scorefire.visible = true;
 
     var totalOfHuds = [for (i in hudes) i];
@@ -226,6 +227,15 @@ function befallThyPootyHUD() {
     FlxTween.tween(camHUD, {y: -20}, 1, {ease: FlxEase.sineOut}).then(FlxTween.tween(camHUD, {y: 2000, angle: 20, alpha: 0}, 8, {ease: FlxEase.sineInOut}));
     internalscore = 0;
     scripts.call("onPlayerMiss");
+}
+
+public function befallTheCurrentHUD() {
+    var totalOfHuds = [for (i in hudes) i];
+    totalOfHuds.push(healthbarlabel);
+    totalOfHuds.push(scorebar);
+    totalOfHuds.push(healthbar);
+    totalOfHuds.push(scorebarlabel);
+    for (i in totalOfHuds) i.alpha = 0;
 }
 
 function onStrumCreation(strumEvent) {
