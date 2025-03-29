@@ -82,7 +82,11 @@ function postCreate() {
     FlxG.sound.play(Paths.sound("begin"));
 	dad.playAnim("idle alt");
 	dad.animation.curAnim.frameRate = 100;
-	if (chartingMode) oiiaoiia = true;
+	if (chartingMode) {
+		oiiaoiia = true;
+		startCountdown();
+		startTimer.cancel();
+	}
 	else {
 		new FlxTimer().start(1.7, function() {
 			dad.playAnim("idle");
