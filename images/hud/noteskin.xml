@@ -2,21 +2,25 @@
 <!--
 Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
 -->
-<TextureAtlas imagePath="noteskin.png" width="960" height="104">
-	<SubTexture name="blue0000" x="1" y="1" width="116" height="101" rotated="true" frameX="-0" frameY="-0" frameWidth="101" frameHeight="116"/>
-	<SubTexture name="purple0000" x="121" y="1" width="116" height="101" frameX="-0" frameY="-0" frameWidth="116" frameHeight="101"/>
-	<SubTexture name="red0000" x="241" y="1" width="116" height="101" frameX="-0" frameY="-0" frameWidth="116" frameHeight="101"/>
-	<SubTexture name="green0000" x="361" y="1" width="116" height="101" rotated="true" frameX="-0" frameY="-0" frameWidth="101" frameHeight="116"/>
-	<SubTexture name="arrowDOWN0000" x="481" y="1" width="117" height="101" rotated="true" frameX="-0" frameY="-0" frameWidth="101" frameHeight="117"/>
-	<SubTexture name="arrowLEFT0000" x="602" y="1" width="117" height="101" frameX="-0" frameY="-0" frameWidth="117" frameHeight="101"/>
-	<SubTexture name="arrowRIGHT0000" x="723" y="1" width="116" height="101" frameX="-0" frameY="-0" frameWidth="116" frameHeight="101"/>
-	<SubTexture name="arrowUP0000" x="843" y="1" width="116" height="102" rotated="true" frameX="-0" frameY="-0" frameWidth="102" frameHeight="116"/>
-	<SubTexture name="down press0000" x="481" y="1" width="117" height="101" rotated="true" frameX="-0" frameY="-0" frameWidth="101" frameHeight="117"/>
-	<SubTexture name="left press0000" x="602" y="1" width="117" height="101" frameX="-0" frameY="-0" frameWidth="117" frameHeight="101"/>
-	<SubTexture name="right press0000" x="723" y="1" width="116" height="101" frameX="-0" frameY="-0" frameWidth="116" frameHeight="101"/>
-	<SubTexture name="up press0000" x="843" y="1" width="116" height="102" rotated="true" frameX="-0" frameY="-0" frameWidth="102" frameHeight="116"/>
-	<SubTexture name="down confirm0000" x="1" y="1" width="116" height="101" rotated="true" frameX="-0" frameY="-0" frameWidth="101" frameHeight="116"/>
-	<SubTexture name="left confirm0000" x="121" y="1" width="116" height="101" frameX="-0" frameY="-0" frameWidth="116" frameHeight="101"/>
-	<SubTexture name="right confirm0000" x="241" y="1" width="116" height="101" frameX="-0" frameY="-0" frameWidth="116" frameHeight="101"/>
-	<SubTexture name="up confirm0000" x="361" y="1" width="116" height="101" rotated="true" frameX="-0" frameY="-0" frameWidth="101" frameHeight="116"/>
+<TextureAtlas imagePath="noteskin.png" width="128" height="3090">
+	<SubTexture name="arrowDOWN" x="10" y="642" width="106" height="106" frameX="-0" frameY="-0" frameWidth="106" frameHeight="106"/>
+	<SubTexture name="arrowLEFT" x="10" y="798" width="106" height="106" frameX="-0" frameY="-0" frameWidth="106" frameHeight="106"/>
+	<SubTexture name="arrowRIGHT" x="10" y="954" width="106" height="106" frameX="-0" frameY="-0" frameWidth="106" frameHeight="106"/>
+	<SubTexture name="arrowUP" x="10" y="1110" width="106" height="106" frameX="-0" frameY="-0" frameWidth="106" frameHeight="106"/>
+	<SubTexture name="downConfirm1" x="10" y="10" width="108" height="108" frameX="-0" frameY="-0" frameWidth="108" frameHeight="108"/>
+	<SubTexture name="downConfirm2" x="10" y="1266" width="106" height="106" frameX="-0" frameY="-0" frameWidth="106" frameHeight="106"/>
+	<SubTexture name="downPress" x="10" y="1422" width="106" height="106" frameX="-0" frameY="-0" frameWidth="106" frameHeight="106"/>
+	<SubTexture name="leftConfirm1" x="10" y="168" width="108" height="108" frameX="-0" frameY="-0" frameWidth="108" frameHeight="108"/>
+	<SubTexture name="leftConfirm2" x="10" y="1578" width="106" height="106" frameX="-0" frameY="-0" frameWidth="106" frameHeight="106"/>
+	<SubTexture name="leftPress" x="10" y="1734" width="106" height="106" frameX="-0" frameY="-0" frameWidth="106" frameHeight="106"/>
+	<SubTexture name="noteDOWN" x="10" y="2514" width="104" height="104" frameX="-0" frameY="-0" frameWidth="104" frameHeight="104"/>
+	<SubTexture name="noteLEFT" x="10" y="2668" width="104" height="104" frameX="-0" frameY="-0" frameWidth="104" frameHeight="104"/>
+	<SubTexture name="noteRIGHT" x="10" y="2822" width="104" height="104" frameX="-0" frameY="-0" frameWidth="104" frameHeight="104"/>
+	<SubTexture name="noteUP" x="10" y="2976" width="104" height="104" frameX="-0" frameY="-0" frameWidth="104" frameHeight="104"/>
+	<SubTexture name="rightConfirm1" x="10" y="326" width="108" height="108" frameX="-0" frameY="-0" frameWidth="108" frameHeight="108"/>
+	<SubTexture name="rightConfirm2" x="10" y="1890" width="106" height="106" frameX="-0" frameY="-0" frameWidth="106" frameHeight="106"/>
+	<SubTexture name="rightPress" x="10" y="2046" width="106" height="106" frameX="-0" frameY="-0" frameWidth="106" frameHeight="106"/>
+	<SubTexture name="upConfirm1" x="10" y="484" width="108" height="108" frameX="-0" frameY="-0" frameWidth="108" frameHeight="108"/>
+	<SubTexture name="upConfirm2" x="10" y="2202" width="106" height="106" frameX="-0" frameY="-0" frameWidth="106" frameHeight="106"/>
+	<SubTexture name="upPress" x="10" y="2358" width="106" height="106" frameX="-0" frameY="-0" frameWidth="106" frameHeight="106"/>
 </TextureAtlas>
