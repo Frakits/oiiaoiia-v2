@@ -1,4 +1,5 @@
 import hxvlc.flixel.FlxVideoSprite;
+import openfl.display.BlendMode;
 var oiiaoiia = false;
 var anamorphiceffect = new CustomShader("anamorphic effects");
 anamorphiceffect.intensity = 10;
@@ -12,6 +13,18 @@ discoCat.animation.play("idle");
 discoCat.zoomFactor = 0;
 discoCat.scrollFactor.set();
 discoCat.alpha = 0;
+
+var smokinghotBG = new FlxVideoSprite();
+smokinghotBG.bitmap.onFormatSetup.add(function()
+{
+	if (smokinghotBG.bitmap != null && smokinghotBG.bitmap.bitmapData != null)
+	{
+		smokinghotBG.screenCenter();
+		smokinghotBG.scrollFactor.set();
+	}
+});
+smokinghotBG.load(Paths.video("ezgif-54ccea6fe5116f"),['input-repeat=65535']);
+smokinghotBG.alpha = 0;
 
 var theLegitBG = new FunkinSprite().makeSolid(1280, 720, 0xFF000000);
 theLegitBG.alpha = 0;
@@ -53,6 +66,7 @@ function create() {
 	beautifulKanji.screenCenter();
 	beautifulKanji.y += 200;
 	add(beautifulKanji);
+	add(smokinghotBG);
 }
 
 function postCreate() {
@@ -129,6 +143,9 @@ function beatHit() {
 		case 4:
 			FlxTween.cancelTweensOf(FlxG.camera);
 			defaultCamZoom = 1;
+			smokinghotBG.play();
+			smokinghotBG.blend = BlendMode.SCREEN;
+			FlxTween.tween(smokinghotBG, {alpha: 0.7}, (Conductor.crochet/1000) * 8, {ease: FlxEase.sineOut});
 
 		case 16,168:
 			FlxTween.tween(discoCat, {alpha: 0.3}, 0.2);
@@ -138,6 +155,7 @@ function beatHit() {
 			
 		case 69:
 			startHUDSequence();
+			FlxTween.tween(smokinghotBG, {alpha: 0}, (Conductor.crochet/1000) * 4, {ease: FlxEase.sineInOut});
 			
 		case 148:
 			FlxG.camera.alpha = 0;

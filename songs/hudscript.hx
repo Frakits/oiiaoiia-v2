@@ -204,7 +204,7 @@ public function startHUDSequence() {
         var booidelay:Int = 0;
         for (it=>i in totalOfHuds) {
             curTweeny = curTweeny.then(FlxTween.tween(i, {alpha: 0}, 0.01, {ease: FlxEase.sineInOut, startDelay: (stupidVAlue-jay) / 100}))
-            .then(FlxTween.tween(i, {alpha: 1}, 0.01, {ease: FlxEase.sineInOut, startDelay: (stupidVAlue-jay) / 300}));
+            .then(FlxTween.tween(i, {alpha: 1}, 0.01, {ease: FlxEase.sineInOut, startDelay: (stupidVAlue-jay) / 300, onComplete: () -> i.alpha = 1}));
         }
     }
 }
@@ -217,7 +217,7 @@ function startNotesSequence() {
         var booidelay:Int = 0;
         for (it=>i in totalOfHuds) {
             curTweeny = curTweeny.then(FlxTween.tween(i, {alpha: 0}, 0.01, {ease: FlxEase.sineInOut, startDelay: (stupidVAlue-jay) / 100}))
-            .then(FlxTween.tween(i, {alpha: 1}, 0.01, {ease: FlxEase.sineInOut, startDelay: (stupidVAlue-jay) / 300}));
+            .then(FlxTween.tween(i, {alpha: 1}, 0.01, {ease: FlxEase.sineInOut, startDelay: (stupidVAlue-jay) / 300, onComplete: () -> i.alpha = 1}));
         }
     }
     for (i in strumLines.members[0].notes.members) i.alpha = 1;
