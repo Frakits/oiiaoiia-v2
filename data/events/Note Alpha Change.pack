@@ -1,17 +1,19 @@
 Note Alpha Change.hx________PACKSEP________function onEvent(e) {
 	if (e.event.name == "Note Alpha Change") {
+		var allTheNotes = [for (i in strumLines.members[0].notes.members) i];
+		for (i in strumLines.members[1].notes.members) allTheNotes.push(i);
 		var timero = (Conductor.stepCrochet * e.event.params[1])/1000; // set the length of the tween
 		var zoomEase = Reflect.field(FlxEase, e.event.params[2] + e.event.params[3]); // build that ease name
 
-        for (i in strumLines.members[0].notes.members)
+        for (i in allTheNotes)
 		    FlxTween.cancelTweensOf(i, ["alpha"]);
 		var tweenProps = {alpha: e.event.params[0]};
 
 		switch (e.event.params[2]) {
 			case "none (happens instantly)":
-                for (i in strumLines.members[0].notes.members) i.alpha = e.event.params[0];
+                for (i in allTheNotes) i.alpha = e.event.params[0];
 			default:
-                for (i in strumLines.members[0].notes.members)
+                for (i in allTheNotes)
 				    FlxTween.tween(i, {alpha: e.event.params[0]}, timero, {ease: zoomEase});
 		}
 	}
