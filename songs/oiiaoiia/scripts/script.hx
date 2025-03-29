@@ -77,17 +77,19 @@ function postCreate() {
     FlxG.camera.bgColor = 0xFFFFFFFF;
     FlxG.camera.followLerp = 1.0;
     FlxG.camera.addShader(anamorphiceffect);
-    //FlxG.camera.snapToTarget();
-    //FlxG.camera.follow();
-    FlxG.sound.play(Paths.sound("begin"));
-	dad.playAnim("idle alt");
-	dad.animation.curAnim.frameRate = 100;
-	if (chartingMode) {
+	camFollow.x = dad.getCameraPosition().x;
+	camFollow.y = dad.getCameraPosition().y;
+	FlxG.camera.snapToTarget();
+    FlxG.camera.follow();
+	if (PlayState.chartingMode) {
 		oiiaoiia = true;
 		startCountdown();
 		startTimer.cancel();
 	}
 	else {
+		FlxG.sound.play(Paths.sound("begin"));
+		dad.playAnim("idle alt");
+		dad.animation.curAnim.frameRate = 100;
 		new FlxTimer().start(1.7, function() {
 			dad.playAnim("idle");
 			new FlxTimer().start(1.1, function() {
@@ -104,7 +106,6 @@ function postCreate() {
 						startCountdown();
 						startTimer.cancel();
 						FlxTween.tween(camHUD, {alpha: 1}, 0.1);
-						FlxG.camera.follow();
 					});
 				});
 			});
