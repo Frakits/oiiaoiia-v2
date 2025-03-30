@@ -1,5 +1,6 @@
 import openfl.display.BlendMode;
 import flixel.math.FlxRect;
+import openfl.geom.ColorTransform;
 
 var moderncamera = new HudCamera();
 
@@ -22,6 +23,12 @@ var healthbar = new FlxSprite(427, 642).loadGraphic(Paths.image("hud/healthbar")
 
 var anamorphiceffect = new CustomShader("anamorphic effects");
 var anamorphiceffecttween:FlxTween = null;
+
+var judgementGroup:FlxGroup = new FlxGroup();
+
+var poopenfartenshader = new CustomShader("colorswap");
+poopenfartenshader.gaytime = true;
+poopenfartenshader.uTime = 1;
 
 function postCreate() {
     for (i in [healthBar, healthBarBG, iconP1, iconP2]) i.visible = false;
@@ -83,6 +90,9 @@ function postCreate() {
     healthbarlabel.alpha = 0;
     add(healthbarlabel);
 
+    judgementGroup.camera = moderncamera;
+    add(judgementGroup);
+
     moderncamera.addShader(anamorphiceffect);
     anamorphiceffect.intensity = 50;
     anamorphiceffect.brightness = 0.06;
@@ -119,7 +129,7 @@ function update(elapsed) {
     healthbar.clipRect.width = lerp(healthbar.clipRect.width, FlxMath.lerp(0, healthbar.width, health/2), 0.2);
     healthbar.clipRect = healthbar.clipRect;
 
-    scorefire.shader.money = Conductor.curBeatFloat;
+    poopenfartenshader.money = scorefire.shader.money = Conductor.curBeatFloat;
 }
 
 function onNoteHit(e) {
@@ -127,6 +137,42 @@ function onNoteHit(e) {
     if (e.rating == "bad") {
         scripts.call("onPlayerMiss");
     }
+
+    if (scorefire.visible) {
+        FlxG.camera.bgColor = 0;
+        var judgementSprite = new FlxSprite(425, 70).loadGraphic(Paths.image("hud/score/" + e.rating));
+        //judgementSprite.origin.y = judgementSprite.height;
+        judgementSprite.scale.set(0.4, 0.4);
+        judgementSprite.alpha = 0;
+        if (e.rating == "sick") {
+            judgementSprite.shader = poopenfartenshader;
+            judgementSprite.setColorTransform(1, 0, 0);
+            judgementSprite.useColorTransform = true;
+        }
+
+        var reversedArray = [for (i in judgementGroup.members) i];
+        reversedArray.reverse();
+        for (it=>i in reversedArray) {
+            FlxTween.completeTweensOf(i);
+            if (i == null) break;
+            FlxTween.cancelTweensOf(i.scale);
+            FlxTween.cancelTweensOf(i.colorTransform);
+            FlxTween.tween(i, {x: 425 - (25 * (it + 1))}, 0.2, {ease: FlxEase.backOut});
+            FlxTween.tween(i.scale, {x: 0.4, y: 0.4}, 0.2, {ease: FlxEase.backOut});
+            FlxTween.tween(i.colorTransform, {blueMultiplier: 1, greenMultiplier: 1}, 1, {ease: FlxEase.sineOut});
+
+            if (it > 10) {
+                FlxTween.tween(i, {alpha: 0}, 0.2, {ease: FlxEase.sineOut, onComplete: function() judgementGroup.remove(i, true)});
+                continue;
+            }
+        }
+        judgementGroup.add(judgementSprite);
+        FlxTween.tween(judgementSprite, {y: 55, alpha: 1}, 0.2, {ease: FlxEase.sineOut})
+        .then(FlxTween.tween(judgementSprite, {y: 65}, 0.2, {ease: FlxEase.backOut}));
+        FlxTween.tween(judgementSprite.scale, {y: 0.7, x: 0.7}, 0.2, {ease: FlxEase.sineOut})
+        .then(FlxTween.tween(judgementSprite.scale, {y: 0.6, x: 0.6}, 0.2, {ease: FlxEase.backOut}));
+    }
+
     if (e.rating == "sick") internalscore += 1;
     else return;
 
@@ -230,6 +276,8 @@ function befallThyPootyHUD() {
 }
 
 public function befallTheCurrentHUD() {
+    scorefire.visible = false;
+
     var totalOfHuds = [for (i in hudes) i];
     totalOfHuds.push(healthbarlabel);
     totalOfHuds.push(scorebar);

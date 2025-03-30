@@ -1,5 +1,6 @@
 import hxvlc.flixel.FlxVideoSprite;
 import openfl.display.BlendMode;
+import flixel.addons.effects.FlxTrail;
 var oiiaoiia = false;
 var anamorphiceffect = new CustomShader("anamorphic effects");
 anamorphiceffect.intensity = 10;
@@ -53,6 +54,8 @@ beautifulKanji.font = Paths.font("kanji.ttf");
 beautifulKanji.camera = beautifulCamera;
 beautifulKanji.alpha = 0;
 
+var rainbowTrail:FlxTrail = null;
+
 function create() {
 	FlxG.cameras.remove(camGame, false);
 	FlxG.cameras.remove(camHUD, false);
@@ -81,6 +84,12 @@ function postCreate() {
 	camFollow.y = dad.getCameraPosition().y;
 	FlxG.camera.snapToTarget();
     FlxG.camera.follow();
+	FlxG.camera.zoom = 0.6;
+	defaultCamZoom = 0.6;
+	rainbowTrail = new FlxTrail(dad, null, 5, 10, 0.3, 0.05);
+	rainbowTrail.offset.x = 100;
+	dad.alpha = 0.3;
+    insert(members.indexOf(dad)-1, rainbowTrail);
 	if (PlayState.chartingMode) {
 		oiiaoiia = true;
 		startCountdown();
@@ -124,24 +133,46 @@ function flarePlay() {
 	FlxTween.num(0, 100, 0.1, {ease: FlxEase.sineOut}, function(v){
 		anamorphiceffect.intensity = v;
 	})
-	.then(FlxTween.num(100, 10, 0.5, {ease: FlxEase.sineInOut}, function(v){
+	.then(FlxTween.num(100, 10, 0.1, {ease: FlxEase.sineInOut}, function(v){
 		anamorphiceffect.intensity = v;
 	}))
-	.then(FlxTween.num(10, 80, 0.3, {ease: FlxEase.sineInOut}, function(v){
+	.then(FlxTween.num(10, 80, 0.05, {ease: FlxEase.sineInOut}, function(v){
 		anamorphiceffect.intensity = v;
 	}))
-	.then(FlxTween.num(80, 30, 0.3, {ease: FlxEase.sineInOut}, function(v){
+	.then(FlxTween.num(80, 30, 0.05, {ease: FlxEase.sineInOut}, function(v){
 		anamorphiceffect.intensity = v;
 	}))
-	.then(FlxTween.num(30, 80, 0.3, {ease: FlxEase.sineInOut}, function(v){
+	.then(FlxTween.num(30, 80, 0.05, {ease: FlxEase.sineInOut}, function(v){
 		anamorphiceffect.intensity = v;
 	}))
-	.then(FlxTween.num(80, 30, 0.3, {ease: FlxEase.sineInOut}, function(v){
+	.then(FlxTween.num(80, 30, 0.05, {ease: FlxEase.sineInOut}, function(v){
 		anamorphiceffect.intensity = v;
 	}))
-	.then(FlxTween.num(30, 100, 0.3, {ease: FlxEase.sineInOut}, function(v){
+	.then(FlxTween.num(30, 100, 0.05, {ease: FlxEase.sineInOut}, function(v){
+		anamorphiceffect.intensity = v;
+	}))
+	.then(FlxTween.num(80, 30, 0.05, {ease: FlxEase.sineInOut}, function(v){
+		anamorphiceffect.intensity = v;
+	}))
+	.then(FlxTween.num(30, 100, 0.05, {ease: FlxEase.sineInOut}, function(v){
+		anamorphiceffect.intensity = v;
+	}))
+	.then(FlxTween.num(80, 30, 0.05, {ease: FlxEase.sineInOut}, function(v){
+		anamorphiceffect.intensity = v;
+	}))
+	.then(FlxTween.num(30, 100, 0.05, {ease: FlxEase.sineInOut}, function(v){
+		anamorphiceffect.intensity = v;
+	}))
+	.then(FlxTween.num(100, 30, 0.05, {ease: FlxEase.sineInOut}, function(v){
+		anamorphiceffect.intensity = v;
+	}))
+	.then(FlxTween.num(30, 80, 0.05, {ease: FlxEase.sineInOut}, function(v){
 		anamorphiceffect.intensity = v;
 	}));
+}
+
+function update() {
+	rainbowTrail.color = FlxColor.fromHSB(FlxMath.wrap(Conductor.songPosition,0,360), 1,1);
 }
 
 function beatHit() {
@@ -164,10 +195,15 @@ function beatHit() {
 		case 69:
 			startHUDSequence();
 			FlxTween.tween(smokinghotBG, {alpha: 0}, (Conductor.crochet/1000) * 4, {ease: FlxEase.sineInOut});
+
+		case 84:
+			defaultCamZoom = 0.6;
 			
 		case 148:
 			FlxG.camera.alpha = 0;
 			FlxG.camera.scroll.y += 100;
+			FlxG.camera.zoom = 1;
+			defaultCamZoom = 1;
 			befallTheCurrentHUD();
 
 		case 154:
