@@ -159,7 +159,7 @@ function onNoteHit(e) {
             FlxTween.cancelTweensOf(i.colorTransform);
             FlxTween.tween(i, {x: 425 - (25 * (it + 1))}, 0.2, {ease: FlxEase.backOut});
             FlxTween.tween(i.scale, {x: 0.4, y: 0.4}, 0.2, {ease: FlxEase.backOut});
-            FlxTween.tween(i.colorTransform, {blueMultiplier: 1, greenMultiplier: 1}, 1, {ease: FlxEase.sineOut});
+            FlxTween.tween(i.colorTransform, {blueMultiplier: 1, greenMultiplier: 1}, 0.5, {ease: FlxEase.sineOut});
 
             if (it > 10) {
                 FlxTween.tween(i, {alpha: 0}, 0.2, {ease: FlxEase.sineOut, onComplete: function() judgementGroup.remove(i, true)});
@@ -170,7 +170,7 @@ function onNoteHit(e) {
         FlxTween.tween(judgementSprite, {y: 55, alpha: 1}, 0.2, {ease: FlxEase.sineOut})
         .then(FlxTween.tween(judgementSprite, {y: 65}, 0.2, {ease: FlxEase.backOut}));
         FlxTween.tween(judgementSprite.scale, {y: 0.7, x: 0.7}, 0.2, {ease: FlxEase.sineOut})
-        .then(FlxTween.tween(judgementSprite.scale, {y: 0.6, x: 0.6}, 0.2, {ease: FlxEase.backOut}));
+        .then(FlxTween.tween(judgementSprite.scale, {y: 0.6, x: 0.6}, 0.4, {ease: FlxEase.backOut}));
     }
 
     if (e.rating == "sick") internalscore += 1;
