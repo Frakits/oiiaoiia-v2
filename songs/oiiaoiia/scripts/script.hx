@@ -27,6 +27,19 @@ smokinghotBG.bitmap.onFormatSetup.add(function()
 smokinghotBG.load(Paths.video("ezgif-54ccea6fe5116f"),['input-repeat=65535']);
 smokinghotBG.alpha = 0;
 
+
+var startwarsBG = new FlxVideoSprite();
+startwarsBG.bitmap.onFormatSetup.add(function()
+{
+	if (startwarsBG.bitmap != null && startwarsBG.bitmap.bitmapData != null)
+	{
+		startwarsBG.screenCenter();
+		startwarsBG.scrollFactor.set();
+	}
+});
+startwarsBG.load(Paths.video("ezgif-85b3f75cc19312"),['input-repeat=65535']);
+startwarsBG.alpha = 0;
+
 var theLegitBG = new FunkinSprite().makeSolid(1280, 720, 0xFF000000);
 theLegitBG.alpha = 0;
 theLegitBG.zoomFactor = 0;
@@ -55,6 +68,7 @@ beautifulKanji.camera = beautifulCamera;
 beautifulKanji.alpha = 0;
 
 var rainbowTrail:FlxTrail = null;
+//rainbowTrail.visible = false;
 
 function create() {
 	FlxG.cameras.remove(camGame, false);
@@ -70,6 +84,8 @@ function create() {
 	beautifulKanji.y += 200;
 	add(beautifulKanji);
 	add(smokinghotBG);
+	startwarsBG.camera = beautifulCamera;
+	add(startwarsBG);
 }
 
 function postCreate() {
@@ -88,8 +104,8 @@ function postCreate() {
 	defaultCamZoom = 0.6;
 	rainbowTrail = new FlxTrail(dad, null, 5, 10, 0.3, 0.05);
 	rainbowTrail.offset.x = 100;
-	dad.alpha = 0.3;
-    insert(members.indexOf(dad)-1, rainbowTrail);
+	rainbowTrail.beforeCache = dad.beforeTrailCache;
+	rainbowTrail.afterCache = dad.afterTrailCache;
 	if (PlayState.chartingMode) {
 		oiiaoiia = true;
 		startCountdown();
@@ -198,8 +214,12 @@ function beatHit() {
 
 		case 84:
 			defaultCamZoom = 0.6;
+			startwarsBG.play();
+			startwarsBG.alpha = 1;
 			
 		case 148:
+			startwarsBG.alpha = 0;
+			startwarsBG.pause();
 			FlxG.camera.alpha = 0;
 			FlxG.camera.scroll.y += 100;
 			FlxG.camera.zoom = 1;

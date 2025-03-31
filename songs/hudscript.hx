@@ -132,6 +132,8 @@ function update(elapsed) {
     poopenfartenshader.money = scorefire.shader.money = Conductor.curBeatFloat;
 }
 
+var lastScaleTween:FlxTween;
+
 function onNoteHit(e) {
     if (e.note.splash == "modern") e.showRating = false;
     if (e.rating == "bad") {
@@ -152,6 +154,7 @@ function onNoteHit(e) {
 
         var reversedArray = [for (i in judgementGroup.members) i];
         reversedArray.reverse();
+        lastScaleTween?.cancelChain();
         for (it=>i in reversedArray) {
             FlxTween.completeTweensOf(i);
             if (i == null) break;
@@ -169,8 +172,8 @@ function onNoteHit(e) {
         judgementGroup.add(judgementSprite);
         FlxTween.tween(judgementSprite, {y: 55, alpha: 1}, 0.2, {ease: FlxEase.sineOut})
         .then(FlxTween.tween(judgementSprite, {y: 65}, 0.2, {ease: FlxEase.backOut}));
-        FlxTween.tween(judgementSprite.scale, {y: 0.7, x: 0.7}, 0.2, {ease: FlxEase.sineOut})
-        .then(FlxTween.tween(judgementSprite.scale, {y: 0.6, x: 0.6}, 0.4, {ease: FlxEase.backOut}));
+        lastScaleTween = FlxTween.tween(judgementSprite.scale, {y: 0.7, x: 0.7}, 0.2, {ease: FlxEase.sineOut});
+        lastScaleTween.then(FlxTween.tween(judgementSprite.scale, {y: 0.6, x: 0.6}, 0.4, {ease: FlxEase.backOut}));
     }
 
     if (e.rating == "sick") internalscore += 1;
@@ -233,6 +236,15 @@ function onPlayerMiss() {
     scorefire.shader.gaytime = false;
     anamorphiceffect.intensity = 50;
     anamorphiceffect.brightness = 0.06;
+
+    var reversedArray = [for (i in judgementGroup.members) i];
+    reversedArray.reverse();
+    for (i in reversedArray) {
+        FlxTween.tween(i, {alpha: 0, x: 100}, 0.5, {ease: FlxEase.circOut, onComplete: function() remove(i)});
+        judgementGroup.remove(i, true);
+        add(i);
+        i.camera = judgementGroup.camera;
+    }
 }
 
 public function startHUDSequence() {
