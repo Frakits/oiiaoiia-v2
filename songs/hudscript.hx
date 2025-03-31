@@ -25,6 +25,7 @@ var anamorphiceffect = new CustomShader("anamorphic effects");
 var anamorphiceffecttween:FlxTween = null;
 
 var judgementGroup:FlxGroup = new FlxGroup();
+var judgementY = 65;
 
 var poopenfartenshader = new CustomShader("colorswap");
 poopenfartenshader.gaytime = true;
@@ -94,7 +95,7 @@ function postCreate() {
     add(judgementGroup);
 
     moderncamera.addShader(anamorphiceffect);
-    anamorphiceffect.intensity = 50;
+    anamorphiceffect.intensity = 30;
     anamorphiceffect.brightness = 0.06;
 
     for (i in strumLines.members[0].members) {
@@ -119,6 +120,7 @@ function postCreate() {
 
         scorefire.y += 36;
         scorefire.x += 5;
+        judgementY -= 36;
     }
 }
 
@@ -144,7 +146,7 @@ function onNoteHit(e) {
         FlxG.camera.bgColor = 0;
         var judgementSprite = new FlxSprite(425, 70).loadGraphic(Paths.image("hud/score/" + e.rating));
         //judgementSprite.origin.y = judgementSprite.height;
-        judgementSprite.scale.set(0.4, 0.4);
+        judgementSprite.scale.set(0.4, 1.2);
         judgementSprite.alpha = 0;
         if (e.rating == "sick") {
             judgementSprite.shader = poopenfartenshader;
@@ -170,8 +172,8 @@ function onNoteHit(e) {
             }
         }
         judgementGroup.add(judgementSprite);
-        FlxTween.tween(judgementSprite, {y: 55, alpha: 1}, 0.2, {ease: FlxEase.sineOut})
-        .then(FlxTween.tween(judgementSprite, {y: 65}, 0.2, {ease: FlxEase.backOut}));
+        FlxTween.tween(judgementSprite, {y: judgementY - 10, alpha: 1}, 0.2, {ease: FlxEase.sineOut})
+        .then(FlxTween.tween(judgementSprite, {y: judgementY}, 0.2, {ease: FlxEase.backOut}));
         lastScaleTween = FlxTween.tween(judgementSprite.scale, {y: 0.7, x: 0.7}, 0.2, {ease: FlxEase.sineOut});
         lastScaleTween.then(FlxTween.tween(judgementSprite.scale, {y: 0.6, x: 0.6}, 0.4, {ease: FlxEase.backOut}));
     }
@@ -184,7 +186,7 @@ function onNoteHit(e) {
         FlxTween.tween(scorefire, {alpha: 0.7}, 0.05, {ease: FlxEase.sineOut});
         FlxTween.tween(scorefire.colorTransform, {blueOffset: 20, redOffset: 20, greenOffset: 20}, 0.4, {ease: FlxEase.backOut});
         FlxTween.tween(scorefire.scale, {y: 1}, 0.4, {ease: FlxEase.elasticOut});
-        anamorphiceffecttween = FlxTween.num(200, 50, 1, {ease: FlxEase.sineOut}, function(v){
+        anamorphiceffecttween = FlxTween.num(150, 30, 1, {ease: FlxEase.sineOut}, function(v){
             anamorphiceffect.intensity = v;
         });
     }
@@ -195,7 +197,7 @@ function onNoteHit(e) {
         scorefiretween = FlxTween.num(0.6, 0.4, 0.2, {}, function(v) {
             scorefire.shader.uTime = v;
         });
-        anamorphiceffecttween = FlxTween.num(300, 50, 1, {ease: FlxEase.sineOut}, function(v){
+        anamorphiceffecttween = FlxTween.num(200, 30, 1, {ease: FlxEase.sineOut}, function(v){
             anamorphiceffect.intensity = v;
         });
     }
@@ -206,7 +208,7 @@ function onNoteHit(e) {
         scorefiretween = FlxTween.num(1, 0.1, 0.2, {}, function(v) {
             scorefire.shader.uTime = v;
         });
-        anamorphiceffecttween = FlxTween.num(500, 100, 1, {ease: FlxEase.sineOut}, function(v){
+        anamorphiceffecttween = FlxTween.num(400, 70, 1, {ease: FlxEase.sineOut}, function(v){
             anamorphiceffect.intensity = v;
         });
     }
@@ -218,7 +220,7 @@ function onNoteHit(e) {
         scorefire.colorTransform.blueOffset = scorefire.colorTransform.redOffset = scorefire.colorTransform.greenOffset = 255;
         FlxTween.tween(scorefire.colorTransform, {blueOffset: 20, redOffset: 20, greenOffset: 20}, 0.9, {ease: FlxEase.backOut});
         scorefire.shader.gaytime = true;
-        anamorphiceffecttween = FlxTween.num(720, 120, 1, {ease: FlxEase.sineOut}, function(v){
+        anamorphiceffecttween = FlxTween.num(600, 100, 1, {ease: FlxEase.sineOut}, function(v){
             anamorphiceffect.intensity = v;
             anamorphiceffect.brightness = FlxMath.lerp(0.06, 0.2, (v - 100) / 1100);
         });
@@ -265,6 +267,7 @@ public function startHUDSequence() {
             .then(FlxTween.tween(i, {alpha: 1}, 0.01, {ease: FlxEase.sineInOut, startDelay: (stupidVAlue-jay) / 300, onComplete: () -> i.alpha = 1}));
         }
     }
+    for (i in judgementGroup.members) i.alpha = 1;
 }
 
 function startNotesSequence() {
@@ -296,6 +299,7 @@ public function befallTheCurrentHUD() {
     totalOfHuds.push(healthbar);
     totalOfHuds.push(scorebarlabel);
     for (i in totalOfHuds) i.alpha = 0;
+    for (i in judgementGroup.members) i.alpha = 0;
 }
 
 function onStrumCreation(strumEvent) {
