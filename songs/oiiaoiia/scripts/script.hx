@@ -4,8 +4,6 @@ import flixel.addons.effects.FlxTrail;
 import flixel.addons.display.FlxBackdrop;
 var oiiaoiia = false;
 var anamorphiceffect = new CustomShader("anamorphic effects");
-anamorphiceffect.intensity = 10;
-anamorphiceffect.brightness = 0.06;
 var anamorphiceffecttween:FlxTween = null;
 
 var discoCat = new FunkinSprite(0, 0);
@@ -25,9 +23,23 @@ smokinghotBG.bitmap.onFormatSetup.add(function()
 		smokinghotBG.scrollFactor.set();
 	}
 });
-smokinghotBG.load(Paths.video("ezgif-54ccea6fe5116f"),['input-repeat=65535']);
+smokinghotBG.load(Paths.video("ezgif-54ccea6fe5116f"),['input-repeat=300']);
 smokinghotBG.alpha = 0;
 
+
+var startwarsBGV2 = new FlxVideoSprite();
+startwarsBGV2.bitmap.onFormatSetup.add(function()
+{
+	if (startwarsBGV2.bitmap != null && startwarsBGV2.bitmap.bitmapData != null)
+	{
+		startwarsBGV2.screenCenter();
+		startwarsBGV2.scrollFactor.set();
+	}
+});
+startwarsBGV2.load(Paths.video("ezgif-3af085be812a8b"),['input-repeat=300']);
+startwarsBGV2.alpha = 0;
+startwarsBGV2.shader = new CustomShader("fisheye");
+startwarsBGV2.shader.MAX_POWER = 0.25;
 
 var startwarsBG = new FlxVideoSprite();
 startwarsBG.bitmap.onFormatSetup.add(function()
@@ -38,11 +50,12 @@ startwarsBG.bitmap.onFormatSetup.add(function()
 		startwarsBG.scrollFactor.set();
 	}
 });
-startwarsBG.load(Paths.video("ezgif-85b3f75cc19312"),['input-repeat=65535']);
+startwarsBG.load(Paths.video("ezgif-85b3f75cc19312"),['input-repeat=300']);
 startwarsBG.alpha = 0;
 startwarsBG.shader = new CustomShader("colorswap");
 startwarsBG.shader.gaytime = false;
 startwarsBG.shader.uTime = 1;
+startwarsBG.blend = 0;
 
 var theLegitBG = new FunkinSprite().makeSolid(1280, 720, 0xFF000000);
 theLegitBG.alpha = 0;
@@ -79,7 +92,7 @@ beautifulBG.bitmap.onFormatSetup.add(function()
 	}
 });
 beautifulBG.alpha = 0;
-beautifulBG.load(Paths.video("youtube_IuAeVYSk5Bc_1920x1080_h264 (online-video-cutter.com) (remux)"),['input-repeat=65535']);
+beautifulBG.load(Paths.video("youtube_IuAeVYSk5Bc_1920x1080_h264 (online-video-cutter.com) (remux)"),['input-repeat=300']);
 var beautifulText = new FlxText(0, 0, 0, "Beautiful Moment", 74);
 beautifulText.font = Paths.font("amsterdam.ttf");
 beautifulText.camera = beautifulCamera;
@@ -109,9 +122,13 @@ function create() {
 	add(beautifulKanji);
 	startwarsBG.camera = beautifulCamera;
 	add(startwarsBG);
+	startwarsBGV2.camera = beautifulCamera;
+	add(startwarsBGV2);
 	add(smokinghotBG);
 	textgroupthing.camera = textcamerathing;
 	add(textgroupthing);
+	anamorphiceffect.intensity = 10;
+	anamorphiceffect.brightness = 0.06;
 }
 
 function postCreate() {
@@ -172,7 +189,7 @@ function onStartCountdown(event) {
 }
 
 function flarePlay() {
-	FlxTween.num(0, 100, 0.1, {ease: FlxEase.sineOut}, function(v){
+	anamorphiceffecttween = FlxTween.num(0, 100, 0.1, {ease: FlxEase.sineOut}, function(v){
 		anamorphiceffect.intensity = v;
 	})
 	.then(FlxTween.num(100, 10, 0.1, {ease: FlxEase.sineInOut}, function(v){
@@ -256,12 +273,14 @@ function beatHit() {
 			defaultCamZoom = 0.6;
 			startwarsBG.play();
 			startwarsBG.alpha = 1;
-			FlxTween.num(0.2, 0.06, 0.7, {ease: FlxEase.sineInOut}, function(v){
+			anamorphiceffecttween.cancelChain();
+			FlxTween.num(0.2, 0.06, 2, {ease: FlxEase.sineInOut}, function(v){
 				anamorphiceffect.brightness = v;
 			});
-			FlxTween.num(200, 50, 0.7, {ease: FlxEase.sineInOut}, function(v){
+			FlxTween.num(200, 50, 2, {ease: FlxEase.sineInOut}, function(v){
 				anamorphiceffect.intensity = v;
 			});
+			FlxTween.tween(startwarsBG.colorTransform, {blueOffset: 0, redOffset: 0, greenOffset: 0}, 1, {ease: FlxEase.backOut});
 
 		case 100:
 			FlxTween.tween(textcamerathing, {alpha: 0.5}, 0.3, {ease: FlxEase.sineOut});
@@ -275,6 +294,8 @@ function beatHit() {
 			startwarsBG.shader.gaytime = true;
 			insert(members.indexOf(dad)-1, rainbowTrail);
 			for (i in textgroupthing.members) i.setColorTransform(1, 0.75, 0.75);
+			startwarsBG.setColorTransform(1, 1, 1, 1, 100, 100, 100);
+			FlxTween.tween(startwarsBG.colorTransform, {blueOffset: 0, redOffset: 0, greenOffset: 0}, 1, {ease: FlxEase.backOut});
 			
 		case 148:
 			FlxTween.tween(smokinghotBG, {alpha: 0}, (Conductor.crochet/1000) * 4, {ease: FlxEase.sineInOut});
@@ -316,6 +337,55 @@ function beatHit() {
 		
 		case 220:
 			FlxTween.tween(smokinghotBG, {alpha: 0.3}, (Conductor.crochet/1000) * 16, {ease: FlxEase.sineInOut});
+		
+		case 268:
+			dad.shader.colors = [-0.5, -0.3, 0];
+			FlxTween.tween(smokinghotBG, {alpha: 0.8}, (Conductor.crochet/1000) * 8, {ease: FlxEase.sineInOut});
+			startwarsBG.alpha = 1;
+			startwarsBG.play();
+
+		case 284:
+			for (i in textgroupthing.members) i.setColorTransform(0, 0, 0);
+			FlxTween.tween(textcamerathing, {alpha: 0.5}, 0.3, {ease: FlxEase.sineOut});
+			FlxTween.num(0.5, 0.25, 0.3, {ease: FlxEase.circOut}, function(val) {
+				textwarpthing.MAX_POWER = val;
+			});
+		
+		case 300:
+			for (i in textgroupthing.members) i.alpha = 0;
+			FlxTween.tween(smokinghotBG, {alpha: 0.1}, (Conductor.crochet/1000) * 8, {ease: FlxEase.sineInOut});
+			startwarsBGV2.play();
+			FlxTween.tween(startwarsBGV2, {alpha: 1}, 0.4, {ease: FlxEase.sineOut});
+			startwarsBG.blend = BlendMode.DARKEN;
+			FlxTween.num(0.6, 0.15, 0.3, {ease: FlxEase.circOut}, function(val) {
+				startwarsBGV2.shader.MAX_POWER = val;
+			});
+			for (i in textgroupthing.members) i.setColorTransform(1, 1, 1);
+			dad.shader.colors = [0.682,0.728,0.843];
+		
+		case 328:
+			FlxG.camera.bgColor = 0xFFFFFFFF;
+			FlxG.camera.zoom = 0.7;
+			defaultCamZoom = 0.7;
+			dad.shader.colors = [0,0,0];
+			dad.playAnim("idle alt");
+			dad.animation.curAnim.frameRate = 300;
+			strumLines.members[0].characters = [];
+
+	}
+	if ((curBeat >= 268 && curBeat < 296) || (curBeat >= 116 && curBeat < 148)) {
+		FlxTween.cancelTweensOf(startwarsBG.colorTransform);
+		startwarsBG.setColorTransform(1, 1, 1, 1, 30, 30, 30);
+		FlxTween.tween(startwarsBG.colorTransform, {blueOffset: 0, redOffset: 0, greenOffset: 0}, (Conductor.crochet/1000), {ease: FlxEase.sineOut});
+	}
+	
+	if (curBeat >= 300 && curBeat < 328) {
+		FlxTween.cancelTweensOf(startwarsBGV2.colorTransform);
+		FlxTween.cancelTweensOf(beautifulCamera);
+		startwarsBGV2.setColorTransform(1, 1, 1, 1, 30, 30, 30);
+		beautifulCamera.zoom = 1.04;
+		FlxTween.tween(startwarsBGV2.colorTransform, {blueOffset: 0, redOffset: 0, greenOffset: 0}, (Conductor.crochet/1000), {ease: FlxEase.sineOut});
+		FlxTween.tween(beautifulCamera, {zoom: 1}, (Conductor.crochet/1000), {ease: FlxEase.sineOut});
 	}
 }
 
@@ -325,6 +395,12 @@ function destroy() {
 	FlxG.game._filters = [];
 }
 
+var explosion = new FunkinSprite().loadGraphic(Paths.image("Screenshot_20250401_201558"));
+explosion.setGraphicSize(1280, 720);
+explosion.zoomFactor = 0;
+explosion.scrollFactor.set();
+explosion.screenCenter();
+
 function stepHit() {
 	if (curStep > 143 && curStep < 270) {
 		FlxTween.completeTweensOf(theLegitBG);
@@ -333,7 +409,7 @@ function stepHit() {
 	}
 	if (curStep == 270) FlxG.camera.bgColor = 0;
 	if (curStep > 880 && curStep < 976) {
-		theLegitBG.setColorTransform(1, 1, 1, 255, 255, 255);
+		theLegitBG.setColorTransform(1, 1, 1, 1, 255, 255, 255);
 		FlxTween.completeTweensOf(theLegitBG);
 		FlxTween.tween(theLegitBG, {alpha: 1-((976 - curStep) / 96)}, (Conductor.stepCrochet/1000)/2)
 		.then(FlxTween.tween(theLegitBG, {alpha: 0}, (Conductor.stepCrochet/1000)/2));
@@ -344,5 +420,11 @@ function stepHit() {
 		.then(FlxTween.tween(theLegitBG, {alpha: 0}, (Conductor.stepCrochet/1000)/4))
 		.then(FlxTween.tween(theLegitBG, {alpha: 1-((975 - curStep) / 33)}, (Conductor.stepCrochet/1000)/4))
 		.then(FlxTween.tween(theLegitBG, {alpha: 0}, (Conductor.stepCrochet/1000)/4));
+	}
+
+	if (curStep == 1336) {
+		add(explosion);
+		explosion.camera = FlxG.cameras.list[FlxG.cameras.list.length-1];
+		endSong();
 	}
 }

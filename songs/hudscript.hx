@@ -143,7 +143,6 @@ function onNoteHit(e) {
     }
 
     if (scorefire.visible) {
-        FlxG.camera.bgColor = 0;
         var judgementSprite = new FlxSprite(425, 70).loadGraphic(Paths.image("hud/score/" + e.rating));
         //judgementSprite.origin.y = judgementSprite.height;
         judgementSprite.scale.set(0.4, 1.2);
