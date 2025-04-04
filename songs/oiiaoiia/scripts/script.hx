@@ -23,7 +23,7 @@ smokinghotBG.bitmap.onFormatSetup.add(function()
 		smokinghotBG.scrollFactor.set();
 	}
 });
-smokinghotBG.load(Paths.video("ezgif-54ccea6fe5116f"),['input-repeat=300']);
+smokinghotBG.load(Assets.getPath(Paths.file("ezgif-54ccea6fe5116f.mkv")), ['input-repeat=300']);
 smokinghotBG.alpha = 0;
 
 
@@ -36,7 +36,7 @@ startwarsBGV2.bitmap.onFormatSetup.add(function()
 		startwarsBGV2.scrollFactor.set();
 	}
 });
-startwarsBGV2.load(Paths.video("ezgif-3af085be812a8b"),['input-repeat=300']);
+startwarsBGV2.load(Assets.getPath(Paths.file("ezgif-3af085be812a8b.mkv")), ['input-repeat=300']);
 startwarsBGV2.alpha = 0;
 startwarsBGV2.shader = new CustomShader("fisheye");
 startwarsBGV2.shader.MAX_POWER = 0.25;
@@ -50,7 +50,7 @@ startwarsBG.bitmap.onFormatSetup.add(function()
 		startwarsBG.scrollFactor.set();
 	}
 });
-startwarsBG.load(Paths.video("ezgif-85b3f75cc19312"),['input-repeat=300']);
+startwarsBG.load(Assets.getPath(Paths.file("ezgif-85b3f75cc19312.mkv")), ['input-repeat=300']);
 startwarsBG.alpha = 0;
 startwarsBG.shader = new CustomShader("colorswap");
 startwarsBG.shader.gaytime = false;
@@ -92,7 +92,7 @@ beautifulBG.bitmap.onFormatSetup.add(function()
 	}
 });
 beautifulBG.alpha = 0;
-beautifulBG.load(Paths.video("youtube_IuAeVYSk5Bc_1920x1080_h264 (online-video-cutter.com) (remux)"),['input-repeat=300']);
+beautifulBG.load(Assets.getPath(Paths.file("youtube_IuAeVYSk5Bc_1920x1080_h264 (online-video-cutter.com) (remux).mkv")), ['input-repeat=300']);
 var beautifulText = new FlxText(0, 0, 0, "Beautiful Moment", 74);
 beautifulText.font = Paths.font("amsterdam.ttf");
 beautifulText.camera = beautifulCamera;
